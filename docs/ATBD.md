@@ -40,7 +40,7 @@ MEMSCAG has been developed by Painter et al. (2003) and is an extension of the M
 
 # 4 Algorithm Description
 
-![img.png](img.png)
+![img.png](figs/img.png)
 
 **Figure 1.** _Map of snow physics SRR core product algorithms._
 
