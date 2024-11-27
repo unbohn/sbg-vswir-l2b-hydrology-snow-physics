@@ -19,7 +19,7 @@
 # Authors: Niklas Bohn, urs.n.bohn@jpl.nasa.gov
 #          Thomas H. Painter, tpainter@jifresse.ucla.edu (original c programming language version of MEMSCAG)
 #
-# Note: This Python version that fully independent of the original source code.
+# Note: This Python version is fully independent of the original source code.
 #
 # Furthermore, this version is currently tailored to EMIT data
 # and will undergo significant updates in the future to become instrument agnostic.
