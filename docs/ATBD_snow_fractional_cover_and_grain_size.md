@@ -52,13 +52,13 @@ MEMSCAG features a joint estimation of snow grain size and fractional cover by c
 
 Snow endmembers are simulated by combining Mie scattering and the discrete-ordinates radiative transfer model (DISORT) (Stamnes et al., 1988) for grain radii of 10 – 1100 µm, with steps of 10 µm. The simulations include variations with respect to differing solar geometry and diffuse and direct components of irradiance, and represent the hemispherical-directional reflectance factor (HDRF):
 
-$R_{\lambda}(\theta_0, \phi_0; \theta_r, \phi_r) = \frac{\pi L_{\lambda}(\theta_r, \phi_r)}{\mu_0 E_{\lambda,dir}(\theta_0, \phi_0)+E_{\lambda,dif}}$ ,(1)
+$R_{\lambda}(\theta_0, \phi_0; \theta_r, \phi_r) = \frac{\pi L_{\lambda}(\theta_r, \phi_r)}{\mu_0 E_{\lambda,dir}(\theta_0, \phi_0)+E_{\lambda,dif}}$, (1)
 
 where and are zenith and azimuth angles, and the subscripts 0 and r signify incident and reflected. is reflected radiance, is the direct, and is the diffuse irradiance illuminating the surface. Endmembers for all other surface types are derived from ASD spectral measurements in the field, which are then transformed into HDRF using Equation 1.
 
 MEMSCAG analyzes linear spectral mixtures for all possible combinations of two or more endmembers by fitting a set of linear equations to the HDRF measured by the instrument. The linear spectral mixture model is expressed as:
 
-,(2)
+$R_{S,\lambda} = \sum_{i=1}^N F_i R_{\lambda,i} + \epsilon_{\lambda}$, (2)
 
 where is the measured HDRF, is the fraction of endmember _i_, is the HDRF of endmember _i_, and is the residual error at wavelength . The system of equations is then solved by modified Gram-Schmidt orthogonalization (see Section 4.1.2). The residual error is expressed accordingly:
 
