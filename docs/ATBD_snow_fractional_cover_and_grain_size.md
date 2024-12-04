@@ -52,7 +52,7 @@ MEMSCAG features a joint estimation of snow grain size and fractional cover by c
 
 Snow endmembers are simulated by combining Mie scattering and the discrete-ordinates radiative transfer model (DISORT) (Stamnes et al., 1988) for grain radii of 10 – 1100 µm, with steps of 10 µm. The simulations include variations with respect to differing solar geometry and diffuse and direct components of irradiance, and represent the hemispherical-directional reflectance factor (HDRF):
 
-This sentence uses `$` delimiters to show math inline: $\sqrt{3x-1}+(1+x)^2$ ,(1)
+$R_{\lambda}(\theta_0, \phi_0; \theta_r, \phi_r) = \frac{\pi L_{\lambda}(\theta_r, \phi_r)}{\mu_0 E_{\lambda,dir}(\theta_0, \phi_0)+E_{\lambda,dif}}$ ,(1)
 
 where and are zenith and azimuth angles, and the subscripts 0 and r signify incident and reflected. is reflected radiance, is the direct, and is the diffuse irradiance illuminating the surface. Endmembers for all other surface types are derived from ASD spectral measurements in the field, which are then transformed into HDRF using Equation 1.
 
