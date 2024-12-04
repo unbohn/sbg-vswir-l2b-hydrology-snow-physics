@@ -62,7 +62,7 @@ $R_{S,\lambda} = \sum_{i=1}^N F_i R_{\lambda,i} + \epsilon_{\lambda}$, (2)
 
 where is the measured HDRF, is the fraction of endmember _i_, is the HDRF of endmember _i_, and is the residual error at wavelength . The system of equations is then solved by modified Gram-Schmidt orthogonalization (see Section 4.1.2). The residual error is expressed accordingly:
 
-.(3)
+$\epsilon_{\lambda} = R_{S,\lambda} - \sum_{i=1}^N F_i R_{\lambda,i}$. (3)
 
 As goodness-of-fit criterion, MEMSCAG uses the root mean squared error (RMSE) as suggested by Painter et al. (1998) and Roberts et al. (1998):
 
