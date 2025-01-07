@@ -70,7 +70,7 @@ $RMSE = (\frac{1}{M}\sum_{\lambda=1}^M \epsilon_{\lambda}^2)^{\frac{1}{2}}$, (4)
 
 where _M_ is the number of instrument bands. As final step, MEMSCAG normalizes the estimated snow fractional cover by the additive complement of the shade fraction to account for topographic effects on irradiance:
 
-f_{s} = \frac{F_{S}}{1-F_{shade}}. (5)
+$f_{s} = \frac{F_{S}}{1-F_{shade}}$. (5)
 
 For the selection of valid mixture models, MEMSCAG applies specific constraints:
 
