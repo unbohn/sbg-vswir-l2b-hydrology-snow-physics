@@ -52,8 +52,11 @@ MEMSCAG features a joint estimation of snow grain size and fractional cover by c
 
 Snow endmembers are simulated by combining Mie scattering and the discrete-ordinates radiative transfer model (DISORT) (Stamnes et al., 1988) for grain radii of 10 – 1100 µm, with steps of 10 µm. The simulations include variations with respect to differing solar geometry and diffuse and direct components of irradiance, and represent the hemispherical-directional reflectance factor (HDRF):
 
-$R_{\lambda}(\theta_0, \phi_0; \theta_r, \phi_r) = \frac{\pi L_{\lambda}(\theta_r, \phi_r)}{\mu_0 E_{\lambda,dir}(\theta_0, \phi_0)+E_{\lambda,dif}}$, (1)
-
+$$
+\begin{align}
+R_{\lambda}(\theta_0, \phi_0; \theta_r, \phi_r) = \frac{\pi L_{\lambda}(\theta_r, \phi_r)}{\mu_0 E_{\lambda,dir}(\theta_0, \phi_0)+E_{\lambda,dif}},
+\end(align)
+$$
 where and are zenith and azimuth angles, and the subscripts 0 and r signify incident and reflected. is reflected radiance, is the direct, and is the diffuse irradiance illuminating the surface. Endmembers for all other surface types are derived from ASD spectral measurements in the field, which are then transformed into HDRF using Equation 1.
 
 MEMSCAG analyzes linear spectral mixtures for all possible combinations of two or more endmembers by fitting a set of linear equations to the HDRF measured by the instrument. The linear spectral mixture model is expressed as:
@@ -70,9 +73,7 @@ $RMSE = (\frac{1}{M}\sum_{\lambda=1}^M \epsilon_{\lambda}^2)^{\frac{1}{2}}$, (4)
 
 where _M_ is the number of instrument bands. As final step, MEMSCAG normalizes the estimated snow fractional cover by the additive complement of the shade fraction to account for topographic effects on irradiance:
 
-\begin{align}
-f_{s} = \frac{F_{S}}{1-F_{shade}}.
-\end{align}
+f_{s} = \frac{F_{S}}{1-F_{shade}}. (5)
 
 For the selection of valid mixture models, MEMSCAG applies specific constraints:
 
