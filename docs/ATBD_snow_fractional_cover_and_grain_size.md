@@ -52,25 +52,25 @@ MEMSCAG features a joint estimation of snow grain size and fractional cover by c
 
 Snow endmembers are simulated by combining Mie scattering and the discrete-ordinates radiative transfer model (DISORT) (Stamnes et al., 1988) for grain radii of 10 – 1100 µm, with steps of 10 µm. The simulations include variations with respect to differing solar geometry and diffuse and direct components of irradiance, and represent the hemispherical-directional reflectance factor (HDRF):
 
-,(1)
+$R_{\lambda}(\theta_0, \phi_0; \theta_r, \phi_r) = \frac{\pi L_{\lambda}(\theta_r, \phi_r)}{\mu_0 E_{\lambda,dir}(\theta_0, \phi_0)+E_{\lambda,dif}}$, (1)
 
 where and are zenith and azimuth angles, and the subscripts 0 and r signify incident and reflected. is reflected radiance, is the direct, and is the diffuse irradiance illuminating the surface. Endmembers for all other surface types are derived from ASD spectral measurements in the field, which are then transformed into HDRF using Equation 1.
 
 MEMSCAG analyzes linear spectral mixtures for all possible combinations of two or more endmembers by fitting a set of linear equations to the HDRF measured by the instrument. The linear spectral mixture model is expressed as:
 
-,(2)
+$R_{S,\lambda} = \sum_{i=1}^N F_i R_{\lambda,i} + \epsilon_{\lambda}$, (2)
 
 where is the measured HDRF, is the fraction of endmember _i_, is the HDRF of endmember _i_, and is the residual error at wavelength . The system of equations is then solved by modified Gram-Schmidt orthogonalization (see Section 4.1.2). The residual error is expressed accordingly:
 
-.(3)
+$\epsilon_{\lambda} = R_{S,\lambda} - \sum_{i=1}^N F_i R_{\lambda,i}$. (3)
 
 As goodness-of-fit criterion, MEMSCAG uses the root mean squared error (RMSE) as suggested by Painter et al. (1998) and Roberts et al. (1998):
 
-,(4)
+$RMSE = (\frac{1}{M}\sum_{\lambda=1}^M \epsilon_{\lambda}^2)^{\frac{1}{2}}$, (4)
 
 where _M_ is the number of instrument bands. As final step, MEMSCAG normalizes the estimated snow fractional cover by the additive complement of the shade fraction to account for topographic effects on irradiance:
 
-.(5)
+$f_{s} = \frac{F_{S}}{1-F_{shade}}$. (5)
 
 For the selection of valid mixture models, MEMSCAG applies specific constraints:
 
@@ -98,15 +98,15 @@ MEMSCAG applies the following assumptions and limitations:
 
 In the following, all uppercase letters represent matrices, while lowercase letters typify vectors. MEMSCAG solves the set of linear equations in the mixture model by modified Gram-Schmidt orthogonalization. First, it finds the orthogonal and upper-triangular matrices to the transpose of the spectral library dataset matrix by applying QR-factorization, such that
 
-,(6)
+$A^T = QR$, (6)
 
 where . The orthogonal matrix _Q_ is then used to compute the regression coefficients _b_ based on a given measurement _y_:
 
-,(7)
+$b = Q^Ty$, (7)
 
 where _y_ = . Finally, the endmember fractional cover values _p_ are calculated using both _Q_ and the upper-triangular matrix _R_:
 
-.(8)
+$p = R^{-1}Q^Ty$. (8)
 
 ### 4.1.3 Algorithm Input Variables
 
@@ -138,7 +138,7 @@ where _y_ = . Finally, the endmember fractional cover values _p_ are calculated 
 
 The Nolin/Dozier model is an alternative to MEMSCAG in terms of estimating snow grain size. However, it does not include the calculation of snow fractional cover. The method uses the scaled ice absorption band area around 1030 nm and relates it to snow grain radius obtained from a look-up-table (LUT). The scaled absorption band area is a dimensionless quantity and calculated by integrating the scaled absorption band depth over the wavelengths of the ice absorption feature:
 
-,(9)
+$A_b = \int_{\lambda}\frac{R_c-R_b}{R_c}$, (9)
 
 where is the continuum reflectance, and is the measured reflectance spectrum. The continuum end points are determined by averaging pairs of reflectance values at both 950 and 960 nm, and 1080 and 1090 nm. The integral of Equation 9 is then calculated using the trapezoidal rule.
 
