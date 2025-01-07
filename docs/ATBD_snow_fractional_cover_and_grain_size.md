@@ -66,11 +66,13 @@ $\epsilon_{\lambda} = R_{S,\lambda} - \sum_{i=1}^N F_i R_{\lambda,i}$. (3)
 
 As goodness-of-fit criterion, MEMSCAG uses the root mean squared error (RMSE) as suggested by Painter et al. (1998) and Roberts et al. (1998):
 
-,(4)
+$RMSE = (\frac{1}{M}\sum_{\lambda=1}^M \epsilon_{\lambda}^2)^{\frac{1}{2}}$, (4)
 
 where _M_ is the number of instrument bands. As final step, MEMSCAG normalizes the estimated snow fractional cover by the additive complement of the shade fraction to account for topographic effects on irradiance:
 
-.(5)
+\begin{align}
+f_{s} = \frac{F_{S}}{1-F_{shade}}.
+\end{align}
 
 For the selection of valid mixture models, MEMSCAG applies specific constraints:
 
