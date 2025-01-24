@@ -9,7 +9,7 @@ Corresponding author: Niklas Bohn (urs.n.bohn@jpl.nasa.gov)
 **Key Points:**
 
 - Collection of snow retrieval algorithms to support the SBG VSWIR snow physics suite
-- Includes snow fractional cover and grain size estimation plus calculation of snow albedo
+- Includes estimation of snow spectral and broadband albedo
 - Presents candidate EMIT scenes as highlights for potential snow applications
 
 **Version:** 1.0
@@ -22,11 +22,11 @@ Corresponding author: Niklas Bohn (urs.n.bohn@jpl.nasa.gov)
 
 # Plain Language Summary
 
-## Keywords: snow fractional cover, snow grain size, snow albedo
+## Keywords: snow spectral albedo, snow broadband albedo
 
 # 1 Version Description
 
-This is Version 1.0 of the SBG VSWIR snow physics algorithms.
+This is Version 1.0 of the SBG VSWIR snow physics algorithms - Part II: spectral and broadband albedo.
 
 # 2 Introduction
 
@@ -34,7 +34,7 @@ This is Version 1.0 of the SBG VSWIR snow physics algorithms.
 
 ## 3.1 Historical Perspective
 
-MEMSCAG has been developed by Painter et al. (2003) and is an extension of the MESMA algorithm (Roberts et al., 1998).
+IS-SnARF has been developed by Painter et al. (2013).
 
 ## 3.2 Additional Information
 
@@ -44,9 +44,17 @@ MEMSCAG has been developed by Painter et al. (2003) and is an extension of the M
 
 **Figure 1.** _Map of snow physics SRR core product algorithms._
 
-## 4.1 Multiple Endmember Snow Cover and Grain Size (MEMSCAG)
+## 4.1 Imaging Spectrometer-Snow Albedo and Radiative Forcing (IS-SnARF)
 
 ### 4.1.1 Scientific theory
+
+Airborne and spaceborne imaging spectrometers, such as EMIT and the future SBG VSWIR instruments, do not provide the measurements to allow a direct inversion of snow spectral albedo, as they measure reflected photons on their directional optical path and not from the entire hemisphere.
+
+Retrieved L2A surface reflectance, defined as the hemispherical-directional reflectance factor (HDRF), must therefore be converted to spectral albedo. IS-SnARF utilizes the relationship between HDRF and spectral albedo, referred to as the spectral anisotropy factor c:
+
+, (1)
+
+where 
 
 MEMSCAG features a joint estimation of snow grain size and fractional cover by coupling a spectral unmixing approach with a radiative transfer model. Both the number of endmembers and the endmembers themselves are flexible on a per-pixel basis to address spatial heterogeneity. In its default version, MEMSCAG uses a spectral library containing three types of surface endmembers: snow, vegetation, and rock. These can be extended, if desired, by soil and lake ice spectral endmembers.
 
