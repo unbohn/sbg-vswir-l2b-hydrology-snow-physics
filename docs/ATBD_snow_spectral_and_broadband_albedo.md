@@ -52,13 +52,17 @@ Airborne and spaceborne imaging spectrometers, such as EMIT and the future SBG V
 
 Retrieved L2A surface reflectance, defined as the hemispherical-directional reflectance factor (HDRF), must therefore be converted to spectral albedo. IS-SnARF utilizes the relationship between HDRF and spectral albedo, referred to as the spectral anisotropy factor $c$, all of which are a function of wavelength $\lambda$:
 
-$c_{\theta_r,\phi_0-\phi_v;r;\lambda} = \frac{\alpha(r;\lambda)}{HDRF(\theta_0,\theta_v,\phi_0-\phi_v;r;\lambda)} \tag{1}$ 
+$$
+c_{\theta_r,\phi_0-\phi_v;r;\lambda} = \frac{\alpha(r;\lambda)}{HDRF(\theta_0,\theta_v,\phi_0-\phi_v;r;\lambda)} \tag{1}
+$$ 
 
 where $\theta$ and $\phi$ are zenith and azimuth angles, and the subscripts 0, r, and v signify incident, reflected, and view angles. $r$ is the snow grain radius and $\alpha$ is the snow spectral albedo as a function of $r$.
 
 The scalar $c$ is a function of the local geometry between solar illumination and observation angles as well as snow grain size, and rearranging Equation (1) provides an estimate of the snow spectral albedo:
 
-$\alpha(r;\lambda) = HDRF(\theta_0,\theta_v,\phi_0-\phi_v;r;\lambda) * c_{\theta_r,\phi_0-\phi_v;r;\lambda}$. (2)
+$$
+\alpha(r;\lambda) = HDRF(\theta_0,\theta_v,\phi_0-\phi_v;r;\lambda) * c_{\theta_r,\phi_0-\phi_v;r;\lambda} \tag{2}
+$$
 
 IS-SnARF uses a comprehensive look-up-table (LUT) of pre-calculated $c$ scalars, modeled by running the multistream DISORT code (Stamnes et al., 1988; Painter et al., 2003), to obtain the respective anisotropy factor on runtime.
 
