@@ -50,11 +50,17 @@ IS-SnARF has been developed by Painter et al. (2013).
 
 Airborne and spaceborne imaging spectrometers, such as EMIT and the future SBG VSWIR instruments, do not provide the measurements to allow a direct inversion of snow spectral albedo, as they measure reflected photons on their directional optical path and not from the entire hemisphere.
 
-Retrieved L2A surface reflectance, defined as the hemispherical-directional reflectance factor (HDRF), must therefore be converted to spectral albedo. IS-SnARF utilizes the relationship between HDRF and spectral albedo, referred to as the spectral anisotropy factor c, all of which are a function of wavelength $\lambda$:
+Retrieved L2A surface reflectance, defined as the hemispherical-directional reflectance factor (HDRF), must therefore be converted to spectral albedo. IS-SnARF utilizes the relationship between HDRF and spectral albedo, referred to as the spectral anisotropy factor $c$, all of which are a function of wavelength $\lambda$:
 
 $c_{\theta_r,\phi_0-\phi_v;r;\lambda} = \frac{\alpha(r;\lambda)}{HDRF(\theta_0,\theta_v,\phi_0-\phi_v;r;\lambda)}$, (1)
 
-where $\theta$ and $\phi$ are zenith and azimuth angles, and the subscripts 0, r, and v signify incident, reflected, and view angles. $r$ is the snow grain radius and $\alpha is the snow spectral albedo as a function of $r$$.
+where $\theta$ and $\phi$ are zenith and azimuth angles, and the subscripts 0, r, and v signify incident, reflected, and view angles. $r$ is the snow grain radius and $\alpha$ is the snow spectral albedo as a function of $r$.
+
+The scalar $c$ is a function of the local geometry between solar illumination and observation angles as well as snow grain size, and rearranging Equation (1) provides an estimate of the snow spectral albedo:
+
+$\alpha(r;\lambda) = HDRF(\theta_0,\theta_v,\phi_0-\phi_v;r;\lambda) * c_{\theta_r,\phi_0-\phi_v;r;\lambda}$. (2)
+
+IS-SnARF uses a comprehensive look-up-table (LUT) of pre-calculated $c$ scalars, modeled by running the multistream DISORT code (Stamnes et al., 1988; Painter et al., 2003), to obtain the respective anisotropy factor on runtime.
 
 MEMSCAG features a joint estimation of snow grain size and fractional cover by coupling a spectral unmixing approach with a radiative transfer model. Both the number of endmembers and the endmembers themselves are flexible on a per-pixel basis to address spatial heterogeneity. In its default version, MEMSCAG uses a spectral library containing three types of surface endmembers: snow, vegetation, and rock. These can be extended, if desired, by soil and lake ice spectral endmembers.
 
