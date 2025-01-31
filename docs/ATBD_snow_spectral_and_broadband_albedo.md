@@ -50,11 +50,11 @@ IS-SnARF has been developed by Painter et al. (2013).
 
 Airborne and spaceborne imaging spectrometers, such as EMIT and the future SBG VSWIR instruments, do not provide the measurements to allow a direct inversion of snow spectral albedo, as they measure reflected photons on their directional optical path and not from the entire hemisphere.
 
-Retrieved L2A surface reflectance, defined as the hemispherical-directional reflectance factor (HDRF), must therefore be converted to spectral albedo. IS-SnARF utilizes the relationship between HDRF and spectral albedo, referred to as the spectral anisotropy factor c:
+Retrieved L2A surface reflectance, defined as the hemispherical-directional reflectance factor (HDRF), must therefore be converted to spectral albedo. IS-SnARF utilizes the relationship between HDRF and spectral albedo, referred to as the spectral anisotropy factor c, all of which are a function of wavelength $\lambda$:
 
-, (1)
+$c_{\theta_r,\phi_0-\phi_v;r;\lambda} = \frac{\alpha(r;\lambda)}{HDRF(\theta_0,\theta_v,\phi_0-\phi_v;r;\lambda)}$, (1)
 
-where 
+where $\theta$ and $\phi$ are zenith and azimuth angles, and the subscripts 0, r, and v signify incident, reflected, and view angles. $r$ is the snow grain radius and $\alpha is the snow spectral albedo as a function of $r$$.
 
 MEMSCAG features a joint estimation of snow grain size and fractional cover by coupling a spectral unmixing approach with a radiative transfer model. Both the number of endmembers and the endmembers themselves are flexible on a per-pixel basis to address spatial heterogeneity. In its default version, MEMSCAG uses a spectral library containing three types of surface endmembers: snow, vegetation, and rock. These can be extended, if desired, by soil and lake ice spectral endmembers.
 
