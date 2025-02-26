@@ -9,7 +9,7 @@ Corresponding author: Niklas Bohn (urs.n.bohn@jpl.nasa.gov)
 **Key Points:**
 
 - Collection of snow retrieval algorithms to support the SBG VSWIR snow physics suite
-- Includes snow fractional cover and grain size estimation plus calculation of snow albedo
+- Includes snow fractional cover and grain size estimation
 - Presents candidate EMIT scenes as highlights for potential snow applications
 
 **Version:** 1.0
@@ -22,11 +22,11 @@ Corresponding author: Niklas Bohn (urs.n.bohn@jpl.nasa.gov)
 
 # Plain Language Summary
 
-## Keywords: snow fractional cover, snow grain size, snow albedo
+## Keywords: snow fractional cover, snow grain size
 
 # 1 Version Description
 
-This is Version 1.0 of the SBG VSWIR snow physics algorithms.
+This is Version 1.0 of the SBG VSWIR snow physics algorithms - Part I: fractional cover and grain size.
 
 # 2 Introduction
 
