@@ -53,18 +53,26 @@ Airborne and spaceborne imaging spectrometers, such as EMIT and the future SBG V
 Retrieved L2A surface reflectance, defined as the hemispherical-directional reflectance factor (HDRF), must therefore be converted to spectral albedo. IS-SnARF utilizes the relationship between HDRF and spectral albedo, referred to as the spectral anisotropy factor $c$, all of which are a function of wavelength $\lambda$:
 
 $$
-c_{\theta_r,\phi_0-\phi_v;r;\lambda} = \frac{\alpha(r;\lambda)}{HDRF(\theta_0,\theta_v,\phi_0-\phi_v;r;\lambda)} \tag{1}
+c_{\theta_r,\phi_0-\phi_v;r;\lambda} = \frac{\alpha(r;\lambda)}{HDRF(\theta_0,\theta_v,\phi_0-\phi_v;r;\lambda)}, \tag{1}
 $$ 
 
 where $\theta$ and $\phi$ are zenith and azimuth angles, and the subscripts 0, r, and v signify incident, reflected, and view angles. $r$ is the snow grain radius and $\alpha$ is the snow spectral albedo as a function of $r$.
 
-The scalar $c$ is a function of the local geometry between solar illumination and observation angles as well as snow grain size, and rearranging Equation (1) provides an estimate of the snow spectral albedo:
+The scalar $c$ is a function of the local geometry between solar illumination and observation angles as well as snow grain size. Rearranging Equation (1) provides an estimate of the snow spectral albedo:
 
 $$
-\alpha(r;\lambda) = HDRF(\theta_0,\theta_v,\phi_0-\phi_v;r;\lambda) * c_{\theta_r,\phi_0-\phi_v;r;\lambda} \tag{2}
+\alpha(r;\lambda) = HDRF(\theta_0,\theta_v,\phi_0-\phi_v;r;\lambda) * c_{\theta_r,\phi_0-\phi_v;r;\lambda}, \tag{2}
 $$
 
 IS-SnARF uses a comprehensive look-up-table (LUT) of pre-calculated $c$ scalars, modeled by running the multistream DISORT code (Stamnes et al., 1988; Painter et al., 2003), to obtain the respective anisotropy factor on runtime.
+
+Finally, the snow broadband albedo can be obtained by dividing the integral of the snow spectral albedo $\alpha(r;\lambda)$ convolved with the solar irradiance $E(\lambda;\theta_0)$ by the integral of the solar irradiance itself over all wavelengths $\lambda$:
+
+$$
+\alpha(r) = \frac{\sum\limits_{\lambda=350 nm}^{2500nm}E(\lambda;\theta_0)*\alpha(r;\lambda)\Delta\lambda}{\sum\limits_{\lambda=350 nm}^{2500nm}E(\lambda;\theta_0)\Delta\lambda}. \tag{3}
+$$
+
+Here, $\Delta\lambda$ represents the full width at half maximum (FWHM) of each instrument channel, which are commonly characterized with Gaussian spectral response functions.
 
 ### 4.1.1.1 Scientific theory assumptions
 
